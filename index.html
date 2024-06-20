@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <script defer src="./main.js"></script>
+    <title>Golf Score App</title>
+</head>
+<body>
+    <header>
+        <h1>Golf Score App</h1>
+    </header>
+    <main>
+        <form id="playerForm" class="playernames">
+            <div class="playernames-title">Enter Player Names</div>
+            <div class="playernames-inputs">
+                <input id="player1" type="text" placeholder="Player 1" required>
+                <input id="player2" type="text" placeholder="Player 2" required>
+                <input id="player3" type="text" placeholder="Player 3" required>
+                <input id="player4" type="text" placeholder="Player 4" required>
+            </div>
+            <button type="submit" class="btn-save">Save Player Names</button>
+        </form>
+        
+        <section class="scorecard">
+            <div class="grid-container">
+                <div class="grid-item">Hole</div>
+                <div class="grid-item">1</div>
+                <div class="grid-item">2</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item">6</div>
+                <div class="grid-item">7</div>
+                <div class="grid-item">8</div>
+                <div class="grid-item">9</div>
+                <div class="grid-item player-out">Out</div>
+                <div class="grid-item player-total">Total</div>
+
+                <div class="grid-item">Yardage</div>
+                <div class="grid-item">450</div>
+                <div class="grid-item">400</div>
+                <div class="grid-item">350</div>
+                <div class="grid-item">300</div>
+                <div class="grid-item">450</div>
+                <div class="grid-item">400</div>
+                <div class="grid-item">350</div>
+                <div class="grid-item">300</div>
+                <div class="grid-item">450</div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+
+                <div class="grid-item">Par</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">3</div>
+                <div class="grid-item">4</div>
+                <div class="grid-item">5</div>
+                <div class="grid-item"></div>
+                <div class="grid-item"></div>
+
+                <div class="grid-item player-name" id="player1-name"></div>
+                <input id="p1-input1" type="number" min="0" max="10">
+                <input id="p1-input2" type="number" min="0" max="10">
+                <input id="p1-input3" type="number" min="0" max="10">
+                <input id="p1-input4" type="number" min="0" max="10">
+                <input id="p1-input5" type="number" min="0" max="10">
+                <input id="p1-input6" type="number" min="0" max="10">
+                <input id="p1-input7" type="number" min="0" max="10">
+                <input id="p1-input8" type="number" min="0" max="10">
+                <input id="p1-input9" type="number" min="0" max="10">
+                <div class="grid-item player-out" id="p1-out"></div>
+                <div class="grid-item player-total" id="p1-total"></div>
+
+                <div class="grid-item player-name" id="player2-name"></div>
+                <input id="p2-input1" type="number" min="0" max="10">
+                <input id="p2-input2" type="number" min="0" max="10">
+                <input id="p2-input3" type="number" min="0" max="10">
+                <input id="p2-input4" type="number" min="0" max="10">
+                <input id="p2-input5" type="number" min="0" max="10">
+                <input id="p2-input6" type="number" min="0" max="10">
+                <input id="p2-input7" type="number" min="0" max="10">
+                <input id="p2-input8" type="number" min="0" max="10">
+                <input id="p2-input9" type="number" min="0" max="10">
+                <div class="grid-item player-out" id="p2-out"></div>
+                <div class="grid-item player-total" id="p2-total"></div>
+
+                <div class="grid-item player-name" id="player3-name"></div>
+                <input id="p3-input1" type="number" min="0" max="10">
+                <input id="p3-input2" type="number" min="0" max="10">
+                <input id="p3-input3" type="number" min="0" max="10">
+                <input id="p3-input4" type="number" min="0" max="10">
+                <input id="p3-input5" type="number" min="0" max="10">
+                <input id="p3-input6" type="number" min="0" max="10">
+                <input id="p3-input7" type="number" min="0" max="10">
+                <input id="p3-input8" type="number" min="0" max="10">
+                <input id="p3-input9" type="number" min="0" max="10">
+                <div class="grid-item player-out" id="p3-out"></div>
+                <div class="grid-item player-total" id="p3-total"></div>
+
+                <div class="grid-item player-name" id="player4-name"></div>
+                <input id="p4-input1" type="number" min="0" max="10">
+                <input id="p4-input2" type="number" min="0" max="10">
+                <input id="p4-input3" type="number" min="0" max="10">
+                <input id="p4-input4" type="number" min="0" max="10">
+                <input id="p4-input5" type="number" min="0" max="10">
+                <input id="p4-input6" type="number" min="0" max="10">
+                <input id="p4-input7" type="number" min="0" max="10">
+                <input id="p4-input8" type="number" min="0" max="10">
+                <input id="p4-input9" type="number" min="0" max="10">
+                <div class="grid-item player-out" id="p4-out"></div>
+                <div class="grid-item player-total" id="p4-total"></div>
+            </div>
+        </section>
+
+        <button id="calculateTotalButton" class="btn-calculate">Calculate Total Score</button>
+        <button id="resetButton" class="btn-reset">Reset</button>
+        
+        <div id="finalScores" class="final-scores">
+            <h2>Final Scores</h2>
+            <div id="finalScoresContent"></div>
+        </div>
+    </main>
+</body>
+</html>
