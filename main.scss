@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+$primary-color: #4caf50; // A pleasant green color
+$secondary-color: #f44336; // A complementary red color for reset
+$background-color: #f4f6f9; // A lighter background color
+$text-color: #333;
+$white: #fff;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$border-color: #ccc;
+$input-border-color: #4caf50;
+$highlight-color: #e8f5e9; // Light green highlight color
+$header-color: #388e3c; // Darker green for header
+$input-focus-color: #66bb6a; // Slightly lighter green for input focus
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,16 +20,16 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: $background-color;
+    color: $text-color;
 }
 
 header {
-    background-color: #007bff;
-    color: white;
+    background-color: $header-color;
+    color: $white;
     text-align: center;
     padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px $shadow-color;
 }
 
 main {
@@ -28,134 +40,127 @@ main {
 }
 
 .playernames {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    box-shadow: 0 4px 8px $shadow-color;
     padding: 1rem;
     border-radius: 8px;
     width: 100%;
     max-width: 600px;
     text-align: center;
     margin-bottom: 1rem;
-}
 
-.playernames-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
+    .playernames-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
 
-.playernames-inputs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
+    .playernames-inputs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
 }
 
 input[type="text"],
 input[type="number"] {
     padding: 0.75rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid $border-color;
     border-radius: 4px;
     width: 100%;
     max-width: 250px;
     transition: border-color 0.3s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $input-focus-color;
+    }
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
-    outline: none;
-    border-color: #007bff;
+@mixin button-styles($bg-color, $hover-color) {
+    background-color: $bg-color;
+    color: $white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    width: 50%;
+    margin: 10px;
+
+    &:hover {
+        background-color: $hover-color;
+    }
 }
 
 .btn-save, .btn-calculate {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-    width: 50%;
-    margin: 10px;
+    @include button-styles($primary-color, lighten($primary-color, 10%));
 }
 
 .btn-reset {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
-    width: 50%;
-    margin: 10px;
-}
-
-.btn-save:hover, .btn-calculate:hover {
-    background-color: #0056b3;
+    @include button-styles($secondary-color, lighten($secondary-color, 10%));
 }
 
 .scorecard {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    box-shadow: 0 4px 8px $shadow-color;
     border-radius: 8px;
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
     margin-top: 1rem;
-}
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 1px;
-}
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1px;
+    }
 
-.grid-item {
-    background-color: #f0f0f0;
-    padding: 0.75rem;
-    text-align: center;
-    border: 1px solid #ccc;
-    font-size: 0.9rem;
-}
+    .grid-item {
+        background-color: $highlight-color;
+        padding: 0.75rem;
+        text-align: center;
+        border: 1px solid $border-color;
+        font-size: 0.9rem;
 
-.grid-item:nth-child(11),
-.grid-item:nth-child(12) {
-    background-color: #007bff;
-    color: white;
+        &:nth-child(11),
+        &:nth-child(12) {
+            background-color: $primary-color;
+            color: $white;
+        }
+    }
 }
 
 .player-scores {
-    background-color: #f8f9fa;
+    background-color: $background-color;
     padding: 15px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid $border-color;
     border-radius: 8px;
     width: 100%;
     max-width: 100%;
-}
 
-.player-scores .final-scores {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+    .final-scores {
+        background-color: $white;
+        padding: 15px;
+        margin-bottom: 15px;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px $shadow-color;
+    }
 
-.player-scores h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
 
-.player-scores p {
-    font-size: 1.1rem;
-    margin: 8px 0;
+    p {
+        font-size: 1.1rem;
+        margin: 8px 0;
+    }
 }
 
 #finalScoresContent {
@@ -166,18 +171,18 @@ input[type="number"]:focus {
     align-items: center;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #f0f0f0;
+    background-color: $highlight-color;
     border-radius: 8px;
-}
 
-#finalScoresContent h3 {
-    font-size: 1.5rem;
-    margin-right: 10px;
-}
+    h3 {
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
 
-#finalScoresContent p {
-    font-size: 1.1rem;
-    margin: 0;
+    p {
+        font-size: 1.1rem;
+        margin: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -211,6 +216,6 @@ input[type="number"]:focus {
     }
 
     .btn-reset {
-        background-color: #dc3545;
+        background-color: $secondary-color;
     }
 }
