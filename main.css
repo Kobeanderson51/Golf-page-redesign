@@ -46,6 +46,19 @@ main {
   gap: 1rem;
   justify-content: center;
 }
+.playernames select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 250px;
+}
+.playernames select:focus {
+  outline: none;
+  border-color: #66bb6a;
+}
 
 input[type=text],
 input[type=number] {
