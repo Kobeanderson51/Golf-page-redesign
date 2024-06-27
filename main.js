@@ -7,16 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
             parsBack: [5, 4, 3, 4, 4, 3, 4, 4, 5]
         },
         2: {
-            yardagesFront: [420, 390, 340, 310, 420, 390, 340, 310, 420],
-            parsFront: [4, 4, 4, 3, 5, 4, 3, 4, 5],
-            yardagesBack: [430, 380, 330, 300, 430, 380, 330, 300, 430],
-            parsBack: [4, 4, 4, 3, 5, 4, 6, 4, 5]
+            yardagesFront: [333, 150, 285, 356, 324, 452, 379, 164, 452],
+            parsFront: [4, 3, 4, 4, 4, 5, 4, 3, 5],
+            yardagesBack: [419, 351, 168, 340, 382, 264, 177, 347, 457],
+            parsBack: [5, 4, 3, 4, 4, 4, 3, 4, 5]
         },
         3: {
-            yardagesFront: [400, 380, 330, 310, 400, 380, 330, 310, 400],
-            parsFront: [4, 4, 4, 3, 5, 4, 3, 4, 5],
-            yardagesBack: [410, 370, 320, 290, 410, 370, 320, 290, 410],
-            parsBack: [4, 4, 4, 3, 5, 4, 3, 4, 5]
+            yardagesFront: [263, 177, 436, 136, 320, 113, 353, 370, 290],
+            parsFront: [4, 3, 5, 3, 4, 3, 4, 4, 4],
+            yardagesBack: [263, 177, 436, 136, 320, 113, 353, 370, 290],
+            parsBack: [4, 3, 5, 3, 4, 3, 4, 4, 4]
         }
     };
 
@@ -105,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById(`p${i}-in`).textContent = calculateOutScore(backNineInputs);
                 document.getElementById(`p${i}-total`).textContent = totalScore;
                 document.getElementById(`p${i}-total-back`).textContent = totalScore;
+                document.getElementById(`p${i}-par-adjusted`).textContent = parAdjustedScore;
+                document.getElementById(`p${i}-yardage-adjusted`).textContent = yardageAdjustedScore;
 
                 updateTotalParAndYardage();
             });
@@ -117,13 +119,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalParBackElement = document.getElementById('total-par-back');
         const totalYardageBackElement = document.getElementById('total-yardage-back');
         const totalpartotal = document.getElementById('total-par-total');
+        const totalAllYardage = document.getElementById('total-all-yardage');
 
         let totalParFront = courses[selectedCourse].parsFront.reduce((acc, par) => acc + par, 0);
         let totalYardageFront = courses[selectedCourse].yardagesFront.reduce((acc, yardage) => acc + yardage, 0);
         let totalParBack = courses[selectedCourse].parsBack.reduce((acc, par) => acc + par, 0);
         let totalYardageBack = courses[selectedCourse].yardagesBack.reduce((acc, yardage) => acc + yardage, 0);
         let totalParTotal = totalParFront + totalParBack;
-
+        let totalAllYardageValue = totalYardageFront + totalYardageBack;
+        
+        totalAllYardage.textContent = totalAllYardageValue;
         totalpartotal.textContent = totalParTotal;
         totalParFrontElement.textContent = totalParFront;
         totalYardageFrontElement.textContent = totalYardageFront;
