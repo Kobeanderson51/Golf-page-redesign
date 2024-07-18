@@ -42,6 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
             yardagesBack: [469, 393, 214, 373, 159, 307, 425, 353, 396],
             parsBack: [5, 4, 3, 4, 3, 4, 5, 4, 4]
         },
+        8: {
+            yardagesFront: [339, 459, 371, 152, 468, 372, 179, 345, 328],
+            parsFront: [4, 5, 4, 3, 5, 4, 3, 4, 4],
+            yardagesBack: [335, 265, 129, 466, 157, 368, 407, 460, 360],
+            parsBack: [4, 4, 3, 5, 3, 4, 4, 5, 4]
+        },
     };
 
     let selectedCourse = 1;
